@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "955493255272",
+    "firebase_url": "https://connecting-farmers.firebaseio.com",
+    "project_id": "connecting-farmers",
+    "storage_bucket": "connecting-farmers.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:955493255272:android:8b30cec7498bf5499213dd",
+        "android_client_info": {
+          "package_name": "com.example.krushival"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "955493255272-ilku586mlaruqj2lqh3ra105v1p8010c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVCm-3yiFNVaRT2isLTrhfSGoPCC1Ed-Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "955493255272-ilku586mlaruqj2lqh3ra105v1p8010c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
