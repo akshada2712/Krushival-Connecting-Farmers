@@ -96,8 +96,8 @@
                     android:id="@+id/best_sell"
                     android:text="See All"
                     android:textSize="18sp"
-                    android:layout_marginRight="5dp"
-                    android:layout_alignParentRight="true" />
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="5dp" />
             </RelativeLayout>
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/bestsell_recycler"
