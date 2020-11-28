@@ -3,6 +3,7 @@ package com.example.krushival.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.nfc.TagLostException;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,7 +37,7 @@ public class FeatureAdapter extends RecyclerView.Adapter<FeatureAdapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.mFetcost.setText(mFeatureList.get(position).getPrice()+"rs");
         holder.mFetname.setText(mFeatureList.get(position).getName());
         Glide.with(context).load(mFeatureList.get(position).getImage_url()).into(holder.mFetImage);
@@ -44,6 +45,7 @@ public class FeatureAdapter extends RecyclerView.Adapter<FeatureAdapter.ViewHold
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, DetailActivity.class);
+                intent.putExtra("Detail",mFeatureList.get(position));
                 context.startActivity(intent);
             }
         });

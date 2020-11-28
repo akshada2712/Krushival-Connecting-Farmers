@@ -1,6 +1,8 @@
 package com.example.krushival.domain;
 
-public class Feature {
+import java.io.Serializable;
+
+public class Feature implements Serializable {
     String description;
     String image_url;
     String name;
