@@ -65,16 +65,15 @@ public class AddAddressActivity extends AppCompatActivity {
                     final_address+=number+", ";
                 }
 
-                Map<String,String> mMap = new HashMap<>();
-                mMap.put("Address",final_address);
+                Map<String,String> mMap=new HashMap<>();
+                mMap.put("address",final_address);
 
-                //Creating new collection named user.Then creating document .Using auth so the address is saved in the same email
                 mStore.collection("User").document(mAuth.getCurrentUser().getUid())
                         .collection("Address").add(mMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentReference> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(AddAddressActivity.this,"Address Added",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AddAddressActivity.this, "Address Added", Toast.LENGTH_SHORT).show();
                             finish();
                         }
                     }

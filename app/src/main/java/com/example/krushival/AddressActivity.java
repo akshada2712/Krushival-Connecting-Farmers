@@ -42,7 +42,7 @@ public class AddressActivity extends AppCompatActivity {
         paymentBtn = findViewById(R.id.payment_btn);
         mAddressList = new ArrayList<>();
         mAddressAdapter = new AddressAdapter(getApplicationContext(),mAddressList);
-        mAddressRecyclerview.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        mAddressRecyclerview.setLayoutManager(new LinearLayoutManager(getApplicationContext(),RecyclerView.VERTICAL,false));
         mAddressRecyclerview.setAdapter(mAddressAdapter);
 
         mStore.collection("User").document(mAuth.getCurrentUser().getUid())
@@ -50,13 +50,12 @@ public class AddressActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if(task.isSuccessful()){
-                    for(DocumentSnapshot doc:task.getResult()){
-                        Address address = doc.toObject(Address.class);
+                    for(DocumentSnapshot doc:task.getResult().getDocuments()){
+                        Address address=doc.toObject(Address.class);
                         mAddressList.add(address);
                         mAddressAdapter.notifyDataSetChanged();
                     }
                 }
-
             }
         });
 

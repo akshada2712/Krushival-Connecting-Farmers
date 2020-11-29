@@ -22,9 +22,10 @@ import java.util.List;
 public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHolder> {
     Context applicationContext;
     List<Address> mAddressList;
+    private RadioButton mSelectedRadioBtutton;
     public AddressAdapter(Context applicationContext, List<Address> mAddressList) {
-        this.applicationContext = applicationContext;
-        this.mAddressList = mAddressList;
+        this.applicationContext=applicationContext;
+        this.mAddressList=mAddressList;
     }
 
     @NonNull
@@ -36,18 +37,23 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.mAddress.setText(mAddressList.get(position).getAddress());
-
-        holder.mRadio.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        holder.mRadio.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
-                    Toast.makeText(applicationContext,"Checked",Toast.LENGTH_SHORT).show();
+            public void onClick(View v) {
+                for(Address address:mAddressList){
+                    address.setSelected(false);
                 }
+                mAddressList.get(position).setSelected(true);
+
+                if(mSelectedRadioBtutton!=null){
+                    mSelectedRadioBtutton.setChecked(false);
+                }
+                mSelectedRadioBtutton = (RadioButton) v;
+                mSelectedRadioBtutton.setChecked(true);
             }
         });
-
     }
 
     @Override
@@ -61,9 +67,8 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHold
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            mAddress = itemView.findViewById(R.id.address_add);
-            mRadio = itemView.findViewById(R.id.select_address);
+            mAddress=itemView.findViewById(R.id.address_add);
+            mRadio=itemView.findViewById(R.id.select_address);
         }
     }
-
 }
