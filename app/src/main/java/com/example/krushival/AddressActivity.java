@@ -12,6 +12,9 @@ import android.widget.Button;
 
 import com.example.krushival.adapter.AddressAdapter;
 import com.example.krushival.domain.Address;
+import com.example.krushival.domain.BestSell;
+import com.example.krushival.domain.Category;
+import com.example.krushival.domain.Feature;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -35,6 +38,7 @@ public class AddressActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_address);
+        final Object obj = getIntent().getSerializableExtra("item");
         mStore = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
         mAddressRecyclerview = findViewById(R.id.address_recycler);
@@ -66,6 +70,25 @@ public class AddressActivity extends AppCompatActivity {
                 Intent intent = new Intent(AddressActivity.this,AddAddressActivity.class);
                 startActivity(intent);
 
+            }
+        });
+
+        paymentBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                double amount = 0.0;
+                if(obj instanceof Feature){
+                    Feature f = (Feature) obj;
+                    amount = f.getPrice();
+
+                }
+                if(obj instanceof BestSell){
+                    BestSell b = (BestSell) obj;
+                    amount = b.getPrice();
+                }
+                Intent intent = new Intent(AddressActivity.this,PaymentActivity.class);
+                intent.putExtra("amount",amount);
+                startActivity(intent);
             }
         });
 

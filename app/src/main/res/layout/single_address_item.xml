@@ -13,7 +13,8 @@
             android:id="@+id/address_add"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:text="US California" />
+            android:text="US California"
+            android:textColor="@android:color/black"/>
         <LinearLayout
             android:layout_width="50dp"
             android:gravity="center"

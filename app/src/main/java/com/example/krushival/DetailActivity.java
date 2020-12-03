@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -46,7 +47,7 @@ public class DetailActivity extends AppCompatActivity {
         mItemDesc=findViewById(R.id.item_des);
         mAddToCart=findViewById(R.id.item_add_cart);
         mBuyBtn=findViewById(R.id.item_buy_now);
-        Object obj=  getIntent().getSerializableExtra("Detail");
+        final Object obj=  getIntent().getSerializableExtra("Detail");
 
         if(obj instanceof Feature){
             feature= (Feature) obj;
@@ -91,8 +92,13 @@ public class DetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DetailActivity.this,AddressActivity.class);
+                if(feature!=null){
+                    intent.putExtra("item",feature);
+                }
+                if(bestSell!=null){
+                    intent.putExtra("item",bestSell);
+                }
                 startActivity(intent);
-
             }
         });
 

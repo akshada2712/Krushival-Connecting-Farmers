@@ -199,7 +199,7 @@
             android:id="@+id/item_buy_now"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:background="@color/colorPrimary"
+            android:background="@color/colorPrimaryDark"
             android:text="Buy now"
             android:textColor="@android:color/black" />
     </LinearLayout>
