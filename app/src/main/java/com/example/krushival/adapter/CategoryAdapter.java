@@ -6,12 +6,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.krushival.ItemActivity;
+import com.example.krushival.ItemsActivity;
 import com.example.krushival.R;
 import com.example.krushival.domain.Category;
 
@@ -40,7 +42,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         holder.mTypeImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, ItemActivity.class);
+                Intent intent = new Intent(context, ItemsActivity.class);
                 intent.putExtra("type",mCategoryList.get(position).getType());
                 context.startActivity(intent);
             }

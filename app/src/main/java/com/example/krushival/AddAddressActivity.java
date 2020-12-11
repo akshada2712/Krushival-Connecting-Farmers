@@ -8,7 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
+import androidx.appcompat.widget.Toolbar;
+import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -24,6 +25,7 @@ public class AddAddressActivity extends AppCompatActivity {
     private Button mAddAddressBtn;
     private FirebaseFirestore mStore;
     private FirebaseAuth mAuth;
+    private Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,9 @@ public class AddAddressActivity extends AppCompatActivity {
         mAddAddressBtn = findViewById(R.id.ad_add_address);
         mStore = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
+        mToolbar = findViewById(R.id.add_address_toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mAddAddressBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,7 +67,7 @@ public class AddAddressActivity extends AppCompatActivity {
                     final_address+=code+", ";
                 }
                 if(!number.isEmpty()){
-                    final_address+=number+", ";
+                    final_address+=number+" .";
                 }
 
                 Map<String,String> mMap=new HashMap<>();

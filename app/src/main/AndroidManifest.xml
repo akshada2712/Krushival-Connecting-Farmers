@@ -11,14 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PaymentActivity"></activity>
-        <activity android:name=".AddAddressActivity" />
-        <activity android:name=".AddressActivity" />
-        <activity android:name=".DetailActivity" />
+        <activity android:name=".ItemsActivity"></activity>
+        <activity android:name=".PaymentActivity" />
+        <activity android:name=".AddAddressActivity" android:parentActivityName=".AddressActivity"/>
+        <activity android:name=".AddressActivity" android:parentActivityName=".DetailActivity"/>
+        <activity android:name=".DetailActivity" android:parentActivityName=".HomeActivity" />
         <activity android:name=".ItemActivity" />
         <activity android:name=".HomeActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".RegisterActivity" android:parentActivityName=".MainActivity"/>
+        <activity android:name=".LoginActivity" android:parentActivityName=".MainActivity" />
         <activity android:name=".SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

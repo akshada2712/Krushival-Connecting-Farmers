@@ -10,7 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
+import androidx.appcompat.widget.Toolbar;
+import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -21,6 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText email,pwd;
     private Button btn;
     private FirebaseAuth mAuth;
+    private Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,9 @@ public class LoginActivity extends AppCompatActivity {
         pwd = findViewById(R.id.log_pass);
         btn = findViewById(R.id.log_btn);
         mAuth = FirebaseAuth.getInstance();
+        mToolbar = findViewById(R.id.login_toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,10 +49,10 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(LoginActivity.this,"Login Successfull",Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
                                 startActivity(intent);
-                            }else
+                            }/*else
                             {
                                 Toast.makeText(LoginActivity.this,""+task.getException(),Toast.LENGTH_SHORT).show();
-                            }
+                            }*/
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override

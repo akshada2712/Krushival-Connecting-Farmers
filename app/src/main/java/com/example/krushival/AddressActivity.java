@@ -7,14 +7,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-
+import androidx.appcompat.widget.Toolbar;
+import androidx.appcompat.app.AppCompatActivity;
 import com.example.krushival.adapter.AddressAdapter;
 import com.example.krushival.domain.Address;
 import com.example.krushival.domain.BestSell;
 import com.example.krushival.domain.Category;
 import com.example.krushival.domain.Feature;
+import com.example.krushival.domain.Items;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,6 +35,7 @@ public class AddressActivity extends AppCompatActivity {
     private List<Address> mAddressList;
     private FirebaseFirestore mStore;
     private FirebaseAuth mAuth;
+    private Toolbar mToolbar;
 
 
     @Override
@@ -44,6 +48,10 @@ public class AddressActivity extends AppCompatActivity {
         mAddressRecyclerview = findViewById(R.id.address_recycler);
         mAddAddress = findViewById(R.id.add_address_btn);
         paymentBtn = findViewById(R.id.payment_btn);
+        mToolbar = findViewById(R.id.address_toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         mAddressList = new ArrayList<>();
         mAddressAdapter = new AddressAdapter(getApplicationContext(),mAddressList);
         mAddressRecyclerview.setLayoutManager(new LinearLayoutManager(getApplicationContext(),RecyclerView.VERTICAL,false));
@@ -56,6 +64,7 @@ public class AddressActivity extends AppCompatActivity {
                 if(task.isSuccessful()){
                     for(DocumentSnapshot doc:task.getResult().getDocuments()){
                         Address address=doc.toObject(Address.class);
+                        Log.i("Address", "LOG::::::"+address.getAddress()); //where getAddress() is your function defined in model class
                         mAddressList.add(address);
                         mAddressAdapter.notifyDataSetChanged();
                     }
@@ -85,6 +94,10 @@ public class AddressActivity extends AppCompatActivity {
                 if(obj instanceof BestSell){
                     BestSell b = (BestSell) obj;
                     amount = b.getPrice();
+                }
+                if(obj instanceof Items){
+                    Items i = (Items) obj;
+                    amount = i.getPrice();
                 }
                 Intent intent = new Intent(AddressActivity.this,PaymentActivity.class);
                 intent.putExtra("amount",amount);

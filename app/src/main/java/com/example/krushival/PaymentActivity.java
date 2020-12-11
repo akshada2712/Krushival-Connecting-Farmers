@@ -8,13 +8,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.google.firebase.auth.FirebaseAuth;
 
 public class PaymentActivity extends AppCompatActivity {
     TextView mSubTotal,mTotal,mShip;
     Button payBtn;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

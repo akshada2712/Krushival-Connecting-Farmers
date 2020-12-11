@@ -2,23 +2,12 @@ package com.example.krushival.domain;
 
 import java.io.Serializable;
 
-public class BestSell implements Serializable {
-    String description;
-    String img_url;
-    String name;
-    double price;
+public class Items implements Serializable {
+    String description,img_url,name,type;
     int rating;
-    String type;
+    double price;
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public BestSell() {
+    public Items() {
     }
 
     public String getDescription() {
@@ -45,12 +34,12 @@ public class BestSell implements Serializable {
         this.name = name;
     }
 
-    public double getPrice() {
-        return price;
+    public String getType() {
+        return type;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setType(String type) {
+        this.type = type;
     }
 
     public int getRating() {
@@ -59,5 +48,13 @@ public class BestSell implements Serializable {
 
     public void setRating(int rating) {
         this.rating = rating;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 }

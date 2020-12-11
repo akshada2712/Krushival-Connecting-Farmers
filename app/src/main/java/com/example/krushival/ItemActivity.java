@@ -13,5 +13,6 @@ public class ItemActivity extends AppCompatActivity {
         setContentView(R.layout.activity_item);
         String type = getIntent().getStringExtra("type");
         Toast.makeText(this,""+type,Toast.LENGTH_SHORT).show();
+
     }
 }

@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="25dp"
         android:text="Address"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,10 +21,10 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/address_recycler"
         android:layout_width="420dp"
-        android:layout_height="500dp"
+        android:layout_height="475dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
@@ -57,8 +57,9 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/address_toolbar"
-        android:layout_width="430dp"
+        android:layout_width="415dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintStart_toStartOf="parent"

@@ -21,7 +21,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout3"
         android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_height="65dp"
         android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.424"
@@ -32,6 +32,7 @@
             android:layout_width="match_parent"
             android:inputType="text"
             android:id="@+id/ad_name"
+            android:textSize="25dp"
             android:layout_height="match_parent"/>
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -39,7 +40,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout4"
         android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_height="65dp"
         android:layout_marginTop="36dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.424"
@@ -50,13 +51,14 @@
             android:layout_width="match_parent"
             android:inputType="text"
             android:id="@+id/ad_address"
+            android:textSize="25dp"
             android:layout_height="match_parent"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout5"
         android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_height="65dp"
         android:layout_marginTop="36dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.424"
@@ -67,6 +69,7 @@
             android:layout_width="match_parent"
             android:inputType="text"
             android:id="@+id/ad_city"
+            android:textSize="25dp"
             android:layout_height="match_parent"/>
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -74,7 +77,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout6"
         android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_height="65dp"
         android:layout_marginTop="36dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.424"
@@ -85,12 +88,13 @@
             android:layout_width="match_parent"
             android:inputType="number"
             android:id="@+id/ad_code"
+            android:textSize="25dp"
             android:layout_height="match_parent"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_height="65dp"
         android:layout_marginTop="36dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.424"
@@ -101,6 +105,7 @@
             android:layout_width="match_parent"
             android:inputType="number"
             android:id="@+id/ad_phone"
+            android:textSize="25dp"
             android:layout_height="match_parent"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -121,6 +126,7 @@
         android:id="@+id/add_address_toolbar"
         android:layout_width="430dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"

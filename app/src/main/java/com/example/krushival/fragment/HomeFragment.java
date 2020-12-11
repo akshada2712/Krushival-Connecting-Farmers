@@ -1,5 +1,6 @@
 package com.example.krushival.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,7 +12,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.example.krushival.ItemsActivity;
 import com.example.krushival.R;
 import com.example.krushival.adapter.BestSellAdapter;
 import com.example.krushival.adapter.CategoryAdapter;
@@ -46,6 +49,10 @@ public class HomeFragment extends Fragment {
     private BestSellAdapter mBestSellAdapter;
     private RecyclerView mBestSellRecyclerview;
 
+    private TextView mSeeAll;
+    private TextView mFeature;
+    private TextView mBestSell;
+
 
 
     public HomeFragment() {
@@ -58,6 +65,9 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         mstore = FirebaseFirestore.getInstance();
+        mSeeAll = view.findViewById(R.id.see_all);
+        mFeature = view.findViewById(R.id.fea_see_all);
+        mBestSell = view.findViewById(R.id.best_sell_see_all);
         //Category
         mCatRecyclerview = view.findViewById(R.id.category_recycler);
         mCategoryList = new ArrayList<>();
@@ -174,6 +184,30 @@ public class HomeFragment extends Fragment {
                         }
                     }
                 });
+
+        mSeeAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), ItemsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mFeature.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), ItemsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mBestSell.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), ItemsActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         return view;

@@ -8,6 +8,15 @@ public class Feature implements Serializable {
     String name;
     double price;
     int rating;
+    String type;
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     public Feature() {
     }

@@ -87,17 +87,17 @@
                     android:textSize="18sp"/>
 
                 <TextView
+                    android:id="@+id/best_sell_see_all"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
                     android:layout_gravity="right"
                     android:layout_marginEnd="5dp"
+                    android:layout_marginRight="5dp"
                     android:gravity="right"
-                    android:id="@+id/best_sell"
                     android:text="See All"
-                    android:textSize="18sp"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="5dp" />
+                    android:textSize="18sp" />
             </RelativeLayout>
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/bestsell_recycler"

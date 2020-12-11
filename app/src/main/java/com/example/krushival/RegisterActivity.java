@@ -9,7 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
+import androidx.appcompat.widget.Toolbar;
+import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -19,6 +20,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText name,email,pwd;
     private Button btn;
     private FirebaseAuth mAuth;
+    private Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,9 @@ public class RegisterActivity extends AppCompatActivity {
         pwd = findViewById(R.id.reg_password);
         btn = findViewById(R.id.log_btn);
         mAuth = FirebaseAuth.getInstance();
+        mToolbar = findViewById(R.id.reg_toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
