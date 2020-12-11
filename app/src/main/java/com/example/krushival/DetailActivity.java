@@ -64,7 +64,7 @@ public class DetailActivity extends AppCompatActivity {
 
 
         if(feature!=null){
-            Glide.with(getApplicationContext()).load(feature.getImage_url()).into(mImage);
+            Glide.with(getApplicationContext()).load(feature.getImg_url()).into(mImage);
             mItemName.setText(feature.getName());
             mPrice.setText(feature.getPrice()+"rs");
             mItemRating.setText(feature.getRating()+"");

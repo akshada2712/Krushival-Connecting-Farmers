@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Feature implements Serializable {
     String description;
-    String image_url;
+    String img_url;
     String name;
     double price;
     int rating;
@@ -18,6 +18,14 @@ public class Feature implements Serializable {
         this.type = type;
     }
 
+    public String getImg_url() {
+        return img_url;
+    }
+
+    public void setImg_url(String img_url) {
+        this.img_url = img_url;
+    }
+
     public Feature() {
     }
 
@@ -29,13 +37,7 @@ public class Feature implements Serializable {
         this.description = description;
     }
 
-    public String getImage_url() {
-        return image_url;
-    }
 
-    public void setImage_url(String image_url) {
-        this.image_url = image_url;
-    }
 
     public String getName() {
         return name;
