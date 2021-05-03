@@ -49,6 +49,8 @@ public class RegisterActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
                             Toast.makeText(RegisterActivity.this,"Account Successfully Created",Toast.LENGTH_SHORT).show();
+                            Intent intent_new = new Intent(RegisterActivity.this,HomeActivity.class);
+                            startActivity(intent_new);
                         }else{
                                 Toast.makeText(RegisterActivity.this,""+task.getException(),Toast.LENGTH_SHORT).show();
                             }

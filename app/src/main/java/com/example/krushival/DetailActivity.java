@@ -1,5 +1,6 @@
 package com.example.krushival;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -16,6 +17,11 @@ import com.bumptech.glide.Glide;
 import com.example.krushival.domain.BestSell;
 import com.example.krushival.domain.Feature;
 import com.example.krushival.domain.Items;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class DetailActivity extends AppCompatActivity {
     private ImageView mImage;
@@ -30,6 +36,8 @@ public class DetailActivity extends AppCompatActivity {
     BestSell bestSell = null;
     Items items=null;
     private Toolbar mToolbar;
+    FirebaseFirestore mStore;
+    FirebaseAuth mAuth;
 
 
 
@@ -49,6 +57,9 @@ public class DetailActivity extends AppCompatActivity {
         mAddToCart=findViewById(R.id.item_add_cart);
         mBuyBtn=findViewById(R.id.item_buy_now);
         mToolbar = findViewById(R.id.detail_toolbar);
+        mStore = FirebaseFirestore.getInstance();
+        mAuth = FirebaseAuth.getInstance();
+
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         final Object obj=  getIntent().getSerializableExtra("Detail");
@@ -104,6 +115,36 @@ public class DetailActivity extends AppCompatActivity {
         mAddToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(feature!=null){
+                    mStore.collection("User").document(mAuth.getCurrentUser().getUid())
+                            .collection("Cart").add(feature).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentReference> task) {
+                            Toast.makeText(DetailActivity.this,"Item added to cart",Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+
+                if(bestSell!=null){
+                    mStore.collection("User").document(mAuth.getCurrentUser().getUid())
+                            .collection("Cart").add(bestSell).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentReference> task) {
+                            Toast.makeText(DetailActivity.this,"Item added to cart",Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+
+                if(items!=null){
+                    mStore.collection("User").document(mAuth.getCurrentUser().getUid())
+                            .collection("Cart").add(items).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentReference> task) {
+                            Toast.makeText(DetailActivity.this,"Item added to cart",Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+
 
             }
         });
@@ -124,6 +165,7 @@ public class DetailActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
 
 

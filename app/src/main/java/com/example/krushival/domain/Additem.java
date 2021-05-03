@@ -1,31 +1,28 @@
 package com.example.krushival.domain;
 
-import java.io.Serializable;
-
-public class Items implements Serializable {
-
-    String description,img_url,name,type,docId;
+public class Additem {
+    String img_url, name, description, type;
     int rating;
-
-    public String getDocId() {
-        return docId;
-    }
-
-    public void setDocId(String docId) {
-        this.docId = docId;
-    }
-
     double price;
 
-    public Items() {
+    Additem() {
     }
 
-    public String getDescription() {
-        return description;
+    public String getType() {
+        return type;
     }
 
-    public void setDescription(String description) {
+    public static void setType(String type) {
+        type = type;
+    }
+
+    public Additem(String img_url, String name, double price, String description, int rating, String type) {
+        this.img_url = img_url;
+        this.name = name;
+        this.price = price;
         this.description = description;
+        this.rating = rating;
+        this.type = type;
     }
 
     public String getImg_url() {
@@ -44,14 +41,6 @@ public class Items implements Serializable {
         this.name = name;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public int getRating() {
         return rating;
     }
@@ -66,5 +55,13 @@ public class Items implements Serializable {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

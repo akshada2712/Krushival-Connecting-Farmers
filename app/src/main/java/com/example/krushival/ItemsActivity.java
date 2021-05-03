@@ -106,7 +106,8 @@ public class ItemsActivity extends AppCompatActivity {
                         for(DocumentSnapshot doc:task.getResult().getDocuments()){
                             Items items = doc.toObject(Items.class);
                             mItemsList.add(items);
-                            itemsRecyclerAdapter.notifyDataSetChanged();
+                            itemsRecyclerAdapter.notifyDataSetChanged(); //recyclerview was not showing due to this
+
                         }
                     }
                 }

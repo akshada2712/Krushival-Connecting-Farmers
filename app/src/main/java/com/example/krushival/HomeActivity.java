@@ -104,7 +104,6 @@ public class HomeActivity extends AppCompatActivity {
                     });
         }
 
-
     }
 
     private void loadFragment(Fragment fragment) {
@@ -128,6 +127,20 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
+        if(item.getItemId()==R.id.cart){
+
+            Intent intent=new Intent(HomeActivity.this,CartActivity.class);
+            startActivity(intent);
+
+        }
+
+        if (item.getItemId()==R.id.add_item)
+        {
+            Intent intent1=new Intent(HomeActivity.this,AddItemActivity.class);
+            startActivity(intent1);
+        }
+
         return true;
+
     }
 }

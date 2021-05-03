@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
 import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.krushival.adapter.AddressAdapter;
@@ -25,6 +27,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,6 +46,8 @@ public class AddressActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_address);
         final Object obj = getIntent().getSerializableExtra("item");
+        final List<Items> itemsList = (ArrayList<Items>) getIntent().getSerializableExtra("itemsList");
+        //Toast.makeText(this,itemsList.get(0).getName(),Toast.LENGTH_SHORT).show();
         mStore = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
         mAddressRecyclerview = findViewById(R.id.address_recycler);
@@ -99,10 +104,16 @@ public class AddressActivity extends AppCompatActivity {
                     Items i = (Items) obj;
                     amount = i.getPrice();
                 }
+                if(itemsList!=null && itemsList.size()>0){
+                    Intent intent = new Intent(AddressActivity.this,PaymentActivity.class);
+                    intent.putExtra("itemsList", (Serializable) itemsList);
+                    startActivity(intent);
+                }
+                else{
                 Intent intent = new Intent(AddressActivity.this,PaymentActivity.class);
                 intent.putExtra("amount",amount);
                 startActivity(intent);
-            }
+            }}
         });
 
     }

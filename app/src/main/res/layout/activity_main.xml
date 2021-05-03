@@ -52,11 +52,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/image_logo"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/login_btn_bg"
+        android:onClick="gotoLogin"
         android:text="Login"
         android:textColor="#fff"
-        android:onClick="gotoLogin"
 
         />
 
@@ -66,11 +66,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/login_btn"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
+        android:onClick="gotoSignup"
         android:text="Sign Up"
         android:textAllCaps="false"
         android:textSize="18sp"
-        android:onClick="gotoSignup"
 
 
         tools:ignore="OnClick" />
